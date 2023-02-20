@@ -1,6 +1,5 @@
 import ticketera_funciones as tick
 
-
 menu = {
     1: "Agregar producto",
     2: "Eliminar producto",

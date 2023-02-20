@@ -1,19 +1,21 @@
+from datetime import datetime
+
 lista_productos = {}
 
-
 def agregar_producto(diccionario: dict):
+
     nombre = input("Ingrese el nombre del producto: ")
     if nombre in diccionario:
         print("Este producto ya existe, intente con otro.")
     else:
+        cantidad = int(input("Ingrese la cantidad: "))
+        precio = float(input("Ingresa el precio: "))
+        sub_total = round((cantidad * precio),2)        
 
-        cantidad = input("Ingrese la cantidad: ")
-        precio = input("Ingrese el precio: ")
-
-        diccionario[nombre] = {'Cantidad': cantidad, 'Precio': precio}
+        diccionario[nombre] = {'Cantidad': cantidad,
+                               'Precio': precio, 'Sub_total': sub_total}
 
         print("Producto guardado.\n")
-
 
 def eliminar_producto(diccionario: dict):
 
@@ -25,14 +27,14 @@ def eliminar_producto(diccionario: dict):
 
     print(f"Producto {nombre} eliminado")
 
-
 def editar_producto(diccionario: dict):
+
     nombre = input("Ingrese el nombre del producto que desea modificar: ")
     if nombre in diccionario:
-        cantidad = input("Ingrese cantidad: ")
-        precio = input("Ingrese el precio: ")
+       cantidad = int(input("Ingrese la cantidad: "))
+       precio = float(input("Ingresa el precio: "))
     else:
-        print("El producto no existe")  
+        print("El producto no existe")
 
     diccionario[nombre] = {'Cantidad': cantidad, 'Precio': precio}
     print("Producto guardado.\n")
@@ -42,21 +44,20 @@ def ver_productos(diccionario: dict):
         print(f"\n{clave}:")
         for a, b in valor.items():
             print(f"\t{a}: {b}")
-
-def imprimir_ticket(diccionario:dict):
-    pass    
-    subtotal = 0
+        
 
 def sumar_todo(diccionario: dict):
     suma_total = 0
     suma_cantidad = 0
+    fecha = datetime.strftime(datetime.now(), "%d-%m-%Y / %H.%M")
     for valor in diccionario.values():
         lista_2 = []
         for b in valor.values():
             lista_2.append(b)
-        suma_total = suma_total + (int(lista_2[0]) * float(lista_2[1]))
+        suma_total = suma_total + (int(lista_2[0]) * int(lista_2[1]))
         suma_cantidad = suma_cantidad + int(lista_2[0])
-    print(f"Cantidad de productos: {suma_cantidad}\nTotal a abonado: {suma_total}")
+    print(
+        f"\nCantidad de productos: {suma_cantidad}\nTotal a pagar: ${suma_total}\n{fecha}\n")
 
 
 def mostrar_diccionario(diccionario: dict):
@@ -73,18 +74,19 @@ def comprobar_opcion(opcion):
         elif opcion == 2:
             eliminar_producto(lista_productos)
             return False
-        elif opcion ==3:
+        elif opcion == 3:
             editar_producto(lista_productos)
             return False
         elif opcion == 4:
             ver_productos(lista_productos)
             return False
-        elif opcion ==5:
-          # imprimir_ticket(lista_productos)
-            return False  
-        elif opcion == 6:
-            print("\n")
+        elif opcion == 5:
+            ver_productos(lista_productos)
+            print('\n')
             sumar_todo(lista_productos)
+            return False
+        elif opcion == 6:
+            print("\nMuchas gracias por su compra!\n")
             return True
 
         return True
