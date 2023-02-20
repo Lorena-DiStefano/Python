@@ -35,6 +35,20 @@ print(f"Resultado opción 2b : {suma}")
 
 variable = 5
 
+print("Imprime números entre 5 y 21")
+
+while variable < 21:
+    if type(variable)== int:
+        print(variable)
+    variable += 1   
+    
+
+# 4. Crear una función que dado 2 números cualquiera devuelva todos los números comprendidos entre si (solamente los pares)
+
+
+variable = 5
+print("Imprime números pares entre 5 y 21")
+
 while variable < 21:
     if (variable % 2 == 0):
         print(variable)

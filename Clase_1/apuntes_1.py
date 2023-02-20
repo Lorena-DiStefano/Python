@@ -61,5 +61,7 @@ resultado = edad + edad2
 nombre = input("Hola, ¿Cual es su nombre?")
 print(f'Gusto en conocerte {nombre}')
 
-
+#=====NOTAS=====#
 # cls  = borrar consola
+# https://ellibrodepython.com/
+
