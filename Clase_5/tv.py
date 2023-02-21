@@ -11,9 +11,9 @@ class tv:
         self.precio = precio
         self.encendido = False
         self.volumen = 50
-        self.canal = random.randint(0,cant_canales)
+        self.canal = random.randint(1,cant_canales)
        
-        # alt + flecha arriba/abajo : tipear palabra ejemplo self.
+        # ctrl + alt + flecha arriba/abajo : tipear palabra ejemplo self.
 
     def __str__(self):
         return f"\
@@ -74,7 +74,7 @@ if __name__=="__main__":
   print(philco.encender())
   print(philco.encender())
 
-  print(philco.cambiar_canal(23))
+  print(philco.cambiar_canal(50))
 
   print(philco.bajar_volumen())
   print(philco.bajar_volumen())
