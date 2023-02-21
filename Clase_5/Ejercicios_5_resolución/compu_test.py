@@ -1,5 +1,6 @@
 import time
 import os
+import random
 
 class Computadora:
     def __init__(self, marca, modelo, ram, ssd, pulgadas, precio):
@@ -11,6 +12,7 @@ class Computadora:
         self.precio = precio
         self.encendido = False
         self.pagina_web = 'Google' 
+        self.volumen = random.randint(1,50)
         
     def __str__(self):
         return f"\
@@ -48,6 +50,22 @@ class Computadora:
             self.pagina_web == pag_web_elegida
             return f"\nAhora está en la página elegida:{pag_web_elegida}\n"
         
+    def subir_volumen(self):
+        time.sleep(1)
+        if self.volumen >= 49:
+            return "El volumen está al máximo"
+        else:
+            self.volumen += 1
+            return f"Volúmen: {self.volumen}"
+
+    def bajar_volumen(self):
+        time.sleep(1)
+        if self.volumen <= 1:
+            return "El volumen está en mínimo"
+        else:
+            self.volumen -= 1
+            return f"Volúmen: {self.volumen}"
+        
 
 if __name__ == "__main__":
   os.system('cls')
@@ -61,3 +79,11 @@ if __name__ == "__main__":
 
   print(lenovo.bateria(20))
   print(lenovo.navegar('Google'))
+
+  print(lenovo.subir_volumen())
+  print(lenovo.subir_volumen())
+  print(lenovo.subir_volumen())
+  print(f'\n')
+  print(lenovo.bajar_volumen())
+  print(lenovo.bajar_volumen())
+  print(lenovo.bajar_volumen())

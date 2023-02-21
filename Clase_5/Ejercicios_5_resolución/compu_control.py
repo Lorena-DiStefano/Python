@@ -7,3 +7,4 @@ assus = compu_test.Computadora('Assus', 'EJ1629W', 8, 512, 15.6, 340000)
 
 
 print(f"{dell} \n{assus}")
+
